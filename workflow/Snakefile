@@ -1,0 +1,17 @@
+singularity: "docker://continuumio/miniconda3:4.4.10"
+
+rule all:
+    input: "../output/snakemake_generated_output.txt"
+
+rule touch:
+    input: "../output/file_A.txt"
+    output: "../output/snakemake_generated_output.txt"
+    shell: """
+    echo "Working Dir" > {output[0]}
+    pwd >> {output[0]}
+    ls -lh >> {output[0]}
+    echo "Parent Dir" >> {output[0]}
+    ls -lh ../>> {output[0]}
+    echo "/lscratch" >> {output[0]}
+    ls -lh /lscratch >> {output[0]}
+    """

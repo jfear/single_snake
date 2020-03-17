@@ -1,0 +1,13 @@
+jobscript: "./slurm_submit/slurm-jobscript.sh"
+cluster: "./slurm_submit/slurm-submit.py --partition quick --cpus-per-task {threads} --mem 1 --time 00:01:00 --gres lscratch:100 --output=slurm_logs/{rule}.o.%j --error=slurm_logs/{rule}.e.%j"
+cluster-status: "./slurm_submit/slurm-status.py"
+max-jobs-per-second: 10
+max-status-checks-per-second: .01
+local-cores: 2
+jobs: 999
+latency-wait: 120
+keep-going: true
+rerun-incomplete: true
+verbose: true
+use-singularity: true
+printshellcmds: true
