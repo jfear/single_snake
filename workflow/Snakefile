@@ -13,12 +13,18 @@ rule ls_dir:
     ls -lh >> {output[0]}
     printf "\n\n" >> {output[0]}
     printf "Parent Dir: " >> {output[0]}
-    readlink -f ../
+    readlink -f ../ >> {output[0]}
     ls -lh ../>> {output[0]}
+    printf "\n\n" >> {output[0]}
+    printf "Local Scratch: " >> {output[0]}
     echo "/lscratch" >> {output[0]}
     ls -lh /lscratch >> {output[0]}
+    printf "\n\n" >> {output[0]}
+    echo "root: /" >> {output[0]}
+    ls -Cw 80 /  >> {output[0]}
+    printf "\n\n" >> {output[0]}
     echo "df -h" >> {output[0]}
-    df -h >> {output[0]}
+    df -ah >> {output[0]}
     """
 
 rule touch_outside:
