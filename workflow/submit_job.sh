@@ -12,6 +12,5 @@ export SINGULARITY_BIND="/data/$USER,/lscratch"
 
 # run pipeline
 snakemake \
-    --profile ../slurm_submit \
-    --jobname "s.{rulename}.{jobid}.sh" \
-    > "Snakefile.log" 2>&1
+    --profile ./slurm_submit \
+    --jobname "s.{rulename}.{jobid}.sh"
