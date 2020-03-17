@@ -1,12 +1,12 @@
 singularity: "docker://continuumio/miniconda3:latest"
 
 rule all:
-    input: 
-        "ls_dir.txt"
+    input:
+        "ls_dir.txt",
         "../output/snakemake_generated_output.txt"
 
 rule ls_dir:
-    output: "../ls_dir.txt"
+    output: "ls_dir.txt"
     shell: """
     echo "Working Dir" > {output[0]}
     pwd >> {output[0]}
