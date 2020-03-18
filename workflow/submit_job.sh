@@ -5,10 +5,8 @@
 #SBATCH --cpus-per-task=1
 
 # Make required folders
-if [[ ! -e slurm_logs ]]; then mkdir -p slurm_logs; fi
-
 module load singularity/3.5.3
-export SINGULARITY_BIND="/data/$USER,/lscratch"
+export SINGULARITY_BIND="/gpfs/gsfs6/users/fearjm,/data/$USER,/lscratch"
 
 # run pipeline
 snakemake \
