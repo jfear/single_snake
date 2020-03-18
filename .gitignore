@@ -1,5 +1,6 @@
 output/snakemake_generated_output.txt
 workflow/ls_dir.txt
+workflow/container_env.txt
 .snakemake
 *.e.*
 *.o.*

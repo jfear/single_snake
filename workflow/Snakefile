@@ -3,7 +3,8 @@ singularity: "docker://continuumio/miniconda3:latest"
 rule all:
     input:
         "ls_dir.txt",
-        "../output/snakemake_generated_output.txt"
+        "container_env.txt",
+        "../output/snakemake_generated_output.txt",
 
 rule ls_dir:
     output: "ls_dir.txt"
@@ -33,3 +34,7 @@ rule touch_outside:
     shell: """
     cat {input[0]} > {output[0]}
     """
+
+rule container_env:
+    output: "container_env.txt"
+    shell: "env > {output[0]}"
